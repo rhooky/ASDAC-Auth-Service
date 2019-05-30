@@ -5,3 +5,4 @@ itsdangerous==0.24
 Werkzeug==0.12.2
 Flask==0.12.2
 redis==2.10.5
+pytest==4.5.0

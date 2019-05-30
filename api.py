@@ -8,7 +8,11 @@ app = Flask(__name__)
 
 @app.route('/api/v1/authenticate',methods=['GET'])
 def auth():
-    response = {'status' : 'Up and running'}
+    
+    auth = request.args
+    response = controller.login(auth['username'], auth['password'])
+    
+
     return jsonify(response)
     code = 202
 
