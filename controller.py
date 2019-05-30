@@ -12,7 +12,7 @@ def login(uname, pwd):
 # Initial attempt is binary - It is either "Administrator" or a "User" - No other options at this time
 def role(uname):
     print uname
-    user.getuser(uname)
+    user= getUser(uname)
     return user['role']
 
 def getUser(id):
