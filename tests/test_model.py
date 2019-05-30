@@ -1,21 +1,21 @@
 import os
 import unittest
 import pytest
-import api
+from model import *
 
 class MyTestCase(unittest.TestCase):
 
-    def setUp(self):
-        api.app.testing = True
-        self.app = api.app.test_client()
+#    def setUp(self):
+#        model.app.testing = True
+#        self.app = model.app.test_client()
 
-    def tearDown(self):
-        pass
+#    def tearDown(self):
+#        pass
 
-    def test_login(self):
-        response = self.app.get('/api/v1/authenticate?username=admin&password=password', follow_redirects=True)
-        self.assertEqual(response.status_code, 200)
-        self.assertIn(b'true', response.data)
+    def test_createUser(self):
+        user = createUser("admin", "password", "email", "1234", "admin")
+        print user
+        self.assertIn("password", user)
 
 if __name__ == '__main__':
     unittest.main()
