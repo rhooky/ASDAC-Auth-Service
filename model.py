@@ -19,6 +19,7 @@ r = initDB()
 def createUser(username, password, email, phone, role, notify):
     user_key = role + "_" + username
     r.hmset(user_key, {"username" : username, "password" : password, "email" : email, "phone" : str(phone), "notification" : notify, "role" : role})
+    #needs error checking to prevent duplicate ID
     user = r.hgetall(user_key)
     return user
 
