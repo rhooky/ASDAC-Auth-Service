@@ -1,10 +1,9 @@
 from flask import Flask, jsonify, request
 import os
-from controller.py import *
+import controller
 
 
 app = Flask(__name__)
-
 
 
 @app.route('/api/v1/authenticate',methods=['GET'])

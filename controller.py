@@ -10,4 +10,4 @@ def initDb():
 
     return r
 
-def login(uname, pwd):
+#def login(uname, pwd):
