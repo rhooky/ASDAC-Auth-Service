@@ -1,6 +1,7 @@
 import redis
+import os
 
-def initDb():
+def initDB():
     if 'VCAP_SERVICES' in os.environ:
         VCAP_SERVICES = json.loads(os.environ['VCAP_SERVICES'])
         CREDENTIALS = VCAP_SERVICES["rediscloud"][0]["credentials"]
