@@ -14,3 +14,10 @@ def login(uname, pwd):
     print uname
     print pwd
     return True
+
+# Function to acquire User Permissions or Role
+# Initial attempt is binary - It is either "Administrator" or a "User" - No other options at this time
+def role(uname):
+    print uname
+    if uname == "Admin" or uname == "Administrator": return True
+    else: return False
