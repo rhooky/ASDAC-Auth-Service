@@ -10,7 +10,7 @@ def login(uname, pwd):
 
 # Function to acquire User Permissions or Role
 # Initial attempt is binary - It is either "Administrator" or a "User" - No other options at this time
-def role(uname):
+def getRole(uname):
     print uname
     user= getUser(uname)
     return user['role']
