@@ -18,10 +18,17 @@ class MyTestCase(unittest.TestCase):
         self.assertIn("password", user['password'])
         deleteUser("admin_tim")
 
+
     def test_getRole(self):
         createUser("tim", "password", "email", "1234", "admin", "email")
         role = getRole("admin_tim")
         self.assertIn("admin", role)
+        deleteUser("admin_tim")
+
+    def test_getNotification(self):
+        createUser("tim", "password", "email", "1234", "admin", "email")
+        notification = getNotification("admin_tim")
+        self.assertIn(notification, "email")
         deleteUser("admin_tim")
 
 if __name__ == '__main__':

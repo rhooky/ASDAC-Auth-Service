@@ -17,3 +17,7 @@ def getRole(uname):
 
 def getUser(id):
     return model.returnUser(id)
+
+def getNotification(id):
+    user = getUser(id)
+    return user['notification']
