@@ -11,6 +11,7 @@ def initDB():
 
     return r
 
+#Login method take user and password string
 def login(uname, pwd):
     print uname
     print pwd
