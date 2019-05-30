@@ -22,4 +22,4 @@ def login(uname, pwd):
 def role(uname):
     print uname
     user.getuser(uname)
-    return user['role]
+    return user['role']

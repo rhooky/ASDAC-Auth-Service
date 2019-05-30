@@ -14,8 +14,15 @@ class MyTestCase(unittest.TestCase):
 
     def test_createUser(self):
         user = createUser("admin", "password", "email", "1234", "admin")
-        print user
-        self.assertIn("password", user)
+        self.assertIn("password", user['password'])
+
+    def test_updateUser(self):
+        user = updateUser("admin_admin", "phone", "5555")
+        self.assertIn('5555', user['phone'])
+
+    def test_zdeleteUser(self):
+        user = deleteUser("admin_admin")
+        self.assertIs(user, 1)
 
 if __name__ == '__main__':
     unittest.main()
