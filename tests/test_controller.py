@@ -1,6 +1,7 @@
 import os
 import unittest
 import pytest
+from controller import *
 from model import *
 
 class MyTestCase(unittest.TestCase):
@@ -8,21 +9,14 @@ class MyTestCase(unittest.TestCase):
 #    def setUp(self):
 #        model.app.testing = True
 #        self.app = model.app.test_client()
-
 #    def tearDown(self):
 #        pass
 
-    def test_createUser(self):
-        user = createUser("admin", "password", "email", "1234", "admin", "email")
+    def test_getUser(self):
+        createUser("tim", "password", "email", "1234", "admin", "email")
+        user = getUser("admin_tim")
         self.assertIn("password", user['password'])
-
-    def test_updateUser(self):
-        user = updateUser("admin_admin", "phone", "5555")
-        self.assertIn('5555', user['phone'])
-
-    def test_zdeleteUser(self):
-        user = deleteUser("admin_admin")
-        self.assertIs(user, 1)
+        deleteUser("admin_tim")
 
 if __name__ == '__main__':
     unittest.main()
