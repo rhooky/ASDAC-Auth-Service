@@ -44,6 +44,22 @@ def ping():
     return "Online"
     code = 200
 
+@app.route('/api/v1/FilterFieldsByUser',methods=['GET'])
+def fields():
+    user = request.args['username']
+    role = controller.getRole(user)
+    
+    if role == 'admin':
+        response = "EDIT, UPDATE, DELETE, CREATE, VIEW"
+    if role == 'user':
+        response = "VIEW"
+    if role == 'handler':
+        response = "VIEW, UPDATE"
+    
+    return jsonify(response)
+    code = 200
+
+
 #initiates flask server
 if __name__ == "__main__":
     app.run(debug=False,host='0.0.0.0', port=int(os.getenv('PORT', '5000')))
