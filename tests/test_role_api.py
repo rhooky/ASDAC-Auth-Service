@@ -14,7 +14,7 @@ class MyTestCase(unittest.TestCase):
 
     def test_login(self):
         response = self.app.get('/api/v1/authenticate?username=admin&password=password', follow_redirects=True)
-        self.assertEqual(response.status_code, 202)
+        self.assertEqual(response.status_code, 200)
         #self.assertIn(b'True', response.data)
 
 

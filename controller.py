@@ -21,3 +21,7 @@ def getUser(id):
 def getNotification(id):
     user = getUser(id)
     return user['notification']
+
+def getDB():
+    return model.initDB()
+    

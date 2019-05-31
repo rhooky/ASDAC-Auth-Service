@@ -14,22 +14,22 @@ class MyTestCase(unittest.TestCase):
 
     def test_getUser(self):
         createUser("tim", "password", "email", "1234", "admin", "email")
-        user = getUser("admin_tim")
+        user = getUser("tim")
         self.assertIn("password", user['password'])
-        deleteUser("admin_tim")
+        deleteUser("tim")
 
 
     def test_getRole(self):
         createUser("tim", "password", "email", "1234", "admin", "email")
-        role = getRole("admin_tim")
+        role = getRole("tim")
         self.assertIn("admin", role)
-        deleteUser("admin_tim")
+        deleteUser("tim")
 
     def test_getNotification(self):
         createUser("tim", "password", "email", "1234", "admin", "email")
-        notification = getNotification("admin_tim")
+        notification = getNotification("tim")
         self.assertIn(notification, "email")
-        deleteUser("admin_tim")
+        deleteUser("tim")
 
 if __name__ == '__main__':
     unittest.main()
