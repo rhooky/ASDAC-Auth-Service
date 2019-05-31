@@ -9,6 +9,8 @@ global DB_NAME
 
 def initDB():
 
+#uncomment to initate reddit connection as well
+
     if 'VCAP_SERVICES' in os.environ:
         VCAP_SERVICES = json.loads(os.environ['VCAP_SERVICES'])
         #CREDENTIALS = VCAP_SERVICES["rediscloud"][0]["credentials"]

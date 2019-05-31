@@ -31,6 +31,13 @@ def notify():
     return jsonify(response)
     code = 202
 
+@app.route('/api/v1/getPermissions',methods=['GET'])
+def perms():
+    user = request.args['username']
+    response = controller.getRole(user)
+    return jsonify(response)
+    code = 202
+
 @app.route('/api/v1/ping',methods=['GET'])
 def ping():
     
