@@ -18,11 +18,8 @@ def auth():
 
 @app.route('/api/v1/getNotificationMethod',methods=['GET'])
 def notify():
-    
-    user = request.args
-    response = controller.getNotificationMethod()
-    
-
+    user = request.args['username']
+    response = controller.getNotification(user)
     return jsonify(response)
     code = 202
 

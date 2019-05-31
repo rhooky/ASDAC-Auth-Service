@@ -2,6 +2,7 @@ import os
 import unittest
 import pytest
 import api
+from model import *
 
 class MyTestCase(unittest.TestCase):
 
@@ -16,6 +17,20 @@ class MyTestCase(unittest.TestCase):
         response = self.app.get('/api/v1/authenticate?username=admin&password=password', follow_redirects=True)
         self.assertEqual(response.status_code, 200)
         self.assertIn(b'true', response.data)
+
+    
+    def test_login_fail(self):
+        response = self.app.get('/api/v1/authenticate?username=admin&password=notthepassword', follow_redirects=True)
+        self.assertEqual(response.status_code, 200)
+        self.assertNotIn(b'true', response.data)
+
+    def test_notification(self):
+        createUser("admin", "password", "email", "1234", "admin", "email")
+        response = self.app.get('/api/v1/getNotificationMethod?username=admin', follow_redirects=True)
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(u'email', response.data)
+        deleteUser("admin")
+
 
 if __name__ == '__main__':
     unittest.main()
