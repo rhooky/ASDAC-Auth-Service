@@ -20,29 +20,31 @@ def auth():
     
     auth = request.args
     response = controller.login(auth['username'], auth['password'])
-    
-    return jsonify(response)
     code = 200
+    return jsonify(response)
+    
 
 @app.route('/api/v1/getNotificationMethod',methods=['GET'])
 def notify():
     user = request.args['username']
     response = controller.getNotification(user)
-    return jsonify(response)
     code = 200
+    return jsonify(response)
+    
 
 @app.route('/api/v1/getPermissions',methods=['GET'])
 def perms():
     user = request.args['username']
     response = controller.getRole(user)
-    return jsonify(response)
     code = 200
+    return jsonify(response)
+    
 
 @app.route('/api/v1/ping',methods=['GET'])
 def ping():
-    
-    return "Online"
     code = 200
+    return "Online"
+    
 
 @app.route('/api/v1/FilterFieldsByUser',methods=['GET'])
 def fields():
@@ -56,8 +58,9 @@ def fields():
     if role == 'handler':
         response = "VIEW, UPDATE"
     
-    return jsonify(response)
     code = 200
+    return jsonify(response)
+    
 
 
 #initiates flask server
