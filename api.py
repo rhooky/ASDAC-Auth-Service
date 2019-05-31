@@ -22,27 +22,27 @@ def auth():
     response = controller.login(auth['username'], auth['password'])
     
     return jsonify(response)
-    code = 202
+    code = 200
 
 @app.route('/api/v1/getNotificationMethod',methods=['GET'])
 def notify():
     user = request.args['username']
     response = controller.getNotification(user)
     return jsonify(response)
-    code = 202
+    code = 200
 
 @app.route('/api/v1/getPermissions',methods=['GET'])
 def perms():
     user = request.args['username']
     response = controller.getRole(user)
     return jsonify(response)
-    code = 202
+    code = 200
 
 @app.route('/api/v1/ping',methods=['GET'])
 def ping():
     
     return "Online"
-    code = 202
+    code = 200
 
 #initiates flask server
 if __name__ == "__main__":
