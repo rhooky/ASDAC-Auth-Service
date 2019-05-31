@@ -23,6 +23,12 @@ def notify():
     return jsonify(response)
     code = 202
 
+@app.route('/api/v1/ping',methods=['GET'])
+def ping():
+    
+    return "Online"
+    code = 202
+    
 #initiates flask server
 if __name__ == "__main__":
     app.run(debug=False,host='0.0.0.0', port=int(os.getenv('PORT', '5000')))
